@@ -1,4 +1,3 @@
-
 const apiKey = 'dc04724f90b54744bd760407252408';
 const locationInput = document.getElementById('locationInput');
 const suggestionsList = document.getElementById('suggestions');
@@ -10,7 +9,7 @@ locationInput.addEventListener('input', async function() {
         return;
     }
     try {
-        const url = `http://api.weatherapi.com/v1/search.json?key=${apiKey}&q=${encodeURIComponent(query)}`;
+        const url = `https://api.weatherapi.com/v1/search.json?key=${apiKey}&q=${encodeURIComponent(query)}`;
         const response = await fetch(url);
         if (!response.ok) throw new Error('Error fetching suggestions');
         const data = await response.json();
@@ -46,7 +45,7 @@ document.getElementById('weatherForm').addEventListener('submit', async function
     resultDiv.innerHTML = '<span style="color:#66a6ff;">Loading...</span>';
 
     try {
-        const url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${encodeURIComponent(location)}&aqi=yes`;
+        const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${encodeURIComponent(location)}&aqi=yes`;
         const response = await fetch(url);
         if (!response.ok) throw new Error('Location not found');
         const data = await response.json();
